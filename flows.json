@@ -1,5 +1,53 @@
 [
     {
+        "id": "3932ec26.9ed5f4",
+        "type": "tab",
+        "label": "bsec",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "39f5dead.07ac12",
+        "type": "exec",
+        "z": "3932ec26.9ed5f4",
+        "command": "bsec_bme680",
+        "addpay": true,
+        "append": "",
+        "useSpawn": "true",
+        "timer": "",
+        "oldrc": false,
+        "name": "",
+        "x": 320,
+        "y": 200,
+        "wires": [
+            [
+                "201c30c0.9df57"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "53fea4a7.1f2ddc",
+        "type": "inject",
+        "z": "3932ec26.9ed5f4",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 140,
+        "y": 200,
+        "wires": [
+            [
+                "39f5dead.07ac12"
+            ]
+        ]
+    },
+    {
         "id": "9e0d1be8.6e9cc8",
         "type": "change",
         "z": "3932ec26.9ed5f4",
@@ -27,5 +75,60 @@
             ]
         ],
         "info": "{\n    \"topic\": \"\",\n    \"payload\": {\n        \"iaq_accuracy\": \"0\",\n        \"iaq\": \"25.00\",\n        \"temperature\": \"21.04\",\n        \"humidity\": \"58.42\",\n        \"pressure\": \"1019.65\",\n        \"gas\": \"1013\",\n        \"status\": \"0\",\n        \"static_iaq\": \"25\",\n        \"co2_equivalent\": \"0\",\n        \"breath_voc_equivalent\": \"0\"\n    },\n    \"_msgid\": \"9f724965.e7aef8\"\n}"
+    },
+    {
+        "id": "e1ce1c58.99bd7",
+        "type": "debug",
+        "z": "3932ec26.9ed5f4",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload.fields",
+        "targetType": "jsonata",
+        "x": 860,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "201c30c0.9df57",
+        "type": "json",
+        "z": "3932ec26.9ed5f4",
+        "name": "",
+        "property": "payload",
+        "action": "obj",
+        "pretty": false,
+        "x": 490,
+        "y": 200,
+        "wires": [
+            [
+                "9e0d1be8.6e9cc8"
+            ]
+        ]
+    },
+    {
+        "id": "c8b95c50.2fda7",
+        "type": "influxdb batch",
+        "z": "3932ec26.9ed5f4",
+        "influxdb": "25c5203e.402b3",
+        "precision": "",
+        "retentionPolicy": "",
+        "name": "",
+        "x": 910,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "25c5203e.402b3",
+        "type": "influxdb",
+        "z": "",
+        "hostname": "127.0.0.1",
+        "port": "8086",
+        "protocol": "http",
+        "database": "bme680",
+        "name": "",
+        "usetls": false,
+        "tls": ""
     }
 ]
