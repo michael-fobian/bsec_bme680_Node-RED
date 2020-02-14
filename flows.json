@@ -1,0 +1,31 @@
+[
+    {
+        "id": "9e0d1be8.6e9cc8",
+        "type": "change",
+        "z": "3932ec26.9ed5f4",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "[\t   {\t       \"measurement\": \"bme680\",\t       \"tags\": {\t            \"host\": \"pi\"\t        },\t       \"fields\": {\t            \"iaq_accuracy\":             $number(payload.iaq_accuracy),\t            \"iaq\":                      $number(payload.iaq),\t            \"temperature\":              $number(payload.temperature),\t            \"humidity\":                 $number(payload.humidity),\t            \"pressure\":                 $number(payload.pressure),\t            \"gas\":                      $number(payload.gas),\t            \"status\":                   $number(payload.status),\t            \"static_iaq\":               $number(payload.static_iaq),\t            \"co2_equivalent\":           $number(payload.co2_equivalent),\t            \"breath_voc_equivalent\":    $number(payload.breath_voc_equivalent)\t        }\t   }\t]",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 670,
+        "y": 200,
+        "wires": [
+            [
+                "e1ce1c58.99bd7",
+                "c8b95c50.2fda7"
+            ]
+        ],
+        "info": "{\n    \"topic\": \"\",\n    \"payload\": {\n        \"iaq_accuracy\": \"0\",\n        \"iaq\": \"25.00\",\n        \"temperature\": \"21.04\",\n        \"humidity\": \"58.42\",\n        \"pressure\": \"1019.65\",\n        \"gas\": \"1013\",\n        \"status\": \"0\",\n        \"static_iaq\": \"25\",\n        \"co2_equivalent\": \"0\",\n        \"breath_voc_equivalent\": \"0\"\n    },\n    \"_msgid\": \"9f724965.e7aef8\"\n}"
+    }
+]
