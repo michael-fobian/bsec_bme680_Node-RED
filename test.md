@@ -1,3 +1,5 @@
+Compile everything to .md
+
 # Table 1: Requirements for URS (snow)
 
 | ID   | Requirement       | Description                                                                                       | Count |
